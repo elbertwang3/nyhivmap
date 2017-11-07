@@ -1,0 +1,58 @@
+<html lang="en">
+  	<head>
+    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="HIV Clinics in NYC">
+	    <meta name="author" content="Elbert Wang">
+	    <meta http-equiv="pragma" content="no-cache" />
+
+	    <title>HIV Clinics in NYC</title>
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	    <link href="css/main.css" rel="stylesheet">
+	    <link href='css/leaflet-search.css' rel="stylesheet">
+	    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+		   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+		   crossorigin=""/>
+	    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+		   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+		   crossorigin=""></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.0.4/fuse.min.js"></script>
+		<script src="js/leaflet-search.src.js"></script>
+		<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css' rel='stylesheet'/>
+		<script src="https://d3js.org/d3.v4.js" charset="utf-8"></script>
+		<script src="data/nycneighborhoods.js"></script>
+
+
+  	</head>
+  	<body>
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popsper.js, then Bootstrap JS -->
+    	 
+	   
+    	<div class="wrapper">
+   			<div class="head">
+				<div class="headline">
+					<h1>HIV Clinics in NYC</h1>
+					<h2></h2>
+					<br>
+					<h4></h4>
+				</div>
+			</div>
+
+			<div class="content">
+				<div class="article">
+					
+					<div id="nyhivmap" class="map"></div>
+				</div>
+				
+				
+			</div>
+		
+		</div>
+		<script src="js/main.js"></script>
+	</body>
+</html>
