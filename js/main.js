@@ -1,13 +1,13 @@
 var mapboxAccessToken = 'pk.eyJ1IjoiZWxiZXJ0d2FuZyIsImEiOiJjajk3dmw4amUwYmV2MnFydzl3NDIyaGFpIn0.46xwSuceSuv2Fkeqyiy0JQ';
 
 
-var nyhivmap = L.map('nyhivmap').setView([40.770610, -73.885242], 11.25);
+var nyhivmap = L.map('nyhivmap', {zoomControl: true}).setView([40.760610, -73.925242], 11.5);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='+mapboxAccessToken, {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     id: 'mapbox.streets',
-    zoomSnap: 11.25
+    zoomSnap: 11.5
 }).addTo(nyhivmap);
-
+nyhivmap.zoomControl.setPosition('topright');
 var geojson;
 
 
@@ -59,13 +59,14 @@ function resetHighlight(e) {
     info.update();
 }
 
+var markers = L.markerClusterGroup();
 
 d3.csv('data/HIV_Testing_Locations_geocoded.csv', function(data) {
 	for (var i = 0; i < data.length; i++) {
 		var lat = data[i]['Latitude']
 		var lng = data[i]['Longitude']
 		if (lat != "" && lng != "") {
-			var marker = L.marker([lat, lng]).addTo(nyhivmap);
+			var marker = L.marker([lat, lng])
 			var desc = '<span id="feature-popup">';
 	        desc += '<strong>' + data[i]['Site Name'] + '</strong><br/>';
 
@@ -88,10 +89,12 @@ d3.csv('data/HIV_Testing_Locations_geocoded.csv', function(data) {
 	        }
 	        
 	        desc += '</span>';
-			marker.bindPopup(desc).openPopup();
+			marker.bindPopup(desc);
+			markers.addLayer(marker);
 		}
 
 	}
+	nyhivmap.addLayer(markers);
 		
 })
 var options = { showResultFct: function(feature, container) {
@@ -125,6 +128,9 @@ var searchControl = new L.Control.Search(
 				layer: geojson, 
 				propertyName: 'NTAName', 
 				marker: false,
+				textPlaceholder: 'Search for your borough...',
+				collapsed: false,
+				position: 'topleft',
 				moveToLocation: function(latlng, title, map) {
 					//map.fitBounds( latlng.layer.getBounds() );
 					var zoom = map.getBoundsZoom(latlng.layer.getBounds());
