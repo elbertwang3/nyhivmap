@@ -106,7 +106,7 @@ var options = { showResultFct: function(feature, container) {
     }}
 
 
-var info = L.control({position: 'bottomright'});
+var info = L.control({position: 'bottomleft'});
 
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -115,7 +115,7 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Click neighborhood to zoom</h4>' +  (props ?
+    this._div.innerHTML = '<h4>Click on a neighborhood to zoom</h4>' +  (props ?
         '<b>' + props['BoroName'] + '</b><br />' + props['NTAName']
         : 'Hover for neighborhood name');
 };
