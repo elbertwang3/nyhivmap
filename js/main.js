@@ -128,7 +128,7 @@ var searchControl = new L.Control.Search(
 				layer: geojson, 
 				propertyName: 'NTAName', 
 				marker: false,
-				textPlaceholder: 'Search for your borough...',
+				textPlaceholder: 'Search for your neighborhood...',
 				collapsed: false,
 				position: 'topleft',
 				moveToLocation: function(latlng, title, map) {
