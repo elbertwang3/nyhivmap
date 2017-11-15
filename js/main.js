@@ -10,7 +10,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='
 nyhivmap.zoomControl.setPosition('topright');
 var geojson;
 
-
+console.log("getting here");
 geojson = L.geoJson(nycneighborhoods, {
    	style: style,
     onEachFeature: function(feature, layer) {

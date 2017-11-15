@@ -1,3 +1,8 @@
+/*[is=responsive-body], responsive-child {
+    margin: 0;
+    padding: 0.1px 0;
+    display: block;
+}*/
 text {
 	font-family: 'Avenir Next';
 	font-size: 14px;
@@ -10,21 +15,18 @@ text {
 }
 
 .head {
-	text-align:center;
-	width: 1440px;
-}
-.headline {
-	display:inline-block;
-	text-align: center;
-	width: 750px;
+	max-width: 1000px;
+	margin: 0 auto;
 
 }
+
+
 
 h1 {
 	font-family: 'Helvetica Neue';
 	font-weight: bold;
 	font-size: 40px;
-	text-align: center;
+	word-wrap: break-word;
 
 }
 
@@ -62,9 +64,8 @@ h5 {
  	margin-top: 30px;
 }
 .article {
-	width: 1440px;
-	display: inline-block;
-	text-align: center;
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
 
